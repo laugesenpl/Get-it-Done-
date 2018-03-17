@@ -28,7 +28,14 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Get it Done!" id="J6I-8S-WJn"/>
+                    <navigationItem key="navigationItem" title="Get it Done!" id="J6I-8S-WJn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1YU-S5-Zhy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addItemButton:" destination="7X2-rx-9I5" id="JLU-zA-ARt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcX-Op-pRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
