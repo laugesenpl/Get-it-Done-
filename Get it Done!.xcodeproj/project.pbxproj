@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F308616205F1B83005A46FD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F308615205F1B83005A46FD /* Item.swift */; };
 		8F65C5062058A46E00C9C268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F65C5052058A46E00C9C268 /* AppDelegate.swift */; };
 		8F65C5082058A46E00C9C268 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F65C5072058A46E00C9C268 /* TodoListViewController.swift */; };
 		8F65C50B2058A46E00C9C268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F65C5092058A46E00C9C268 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F308615205F1B83005A46FD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8F65C5022058A46E00C9C268 /* Get it Done!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get it Done!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F65C5052058A46E00C9C268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F65C5072058A46E00C9C268 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				8F65C5052058A46E00C9C268 /* AppDelegate.swift */,
 				8F65C5072058A46E00C9C268 /* TodoListViewController.swift */,
 				8F65C5092058A46E00C9C268 /* Main.storyboard */,
+				8F308615205F1B83005A46FD /* Item.swift */,
 				8F65C50C2058A46E00C9C268 /* Assets.xcassets */,
 				8F65C50E2058A46E00C9C268 /* LaunchScreen.storyboard */,
 				8F65C5112058A46E00C9C268 /* Info.plist */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F65C5082058A46E00C9C268 /* TodoListViewController.swift in Sources */,
+				8F308616205F1B83005A46FD /* Item.swift in Sources */,
 				8F65C5062058A46E00C9C268 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
