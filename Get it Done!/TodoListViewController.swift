@@ -28,9 +28,11 @@ class TodoViewController: UITableViewController {
         firstItem.text = "Do Laundry"
         firstItem.isChecked = false
         itemArray.append(firstItem)
-        if let items = defaults.object(forKey: "TodoListArray") as? [Item] {
+        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
             itemArray = items
         }
+        
+        loadItems()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,13 +115,21 @@ class TodoViewController: UITableViewController {
             try data.write(to: dataFilePath!)
         } catch {
             print("Error encoding item array, \(error)")
-            
         }
         
         tableView.reloadData()
     }
 
-    
-    
+    func loadItems() {
+        let decoder = PropertyListDecoder()
+
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("Error decoding item array, \(error)")
+            }
+        }
+    }
 }
 
