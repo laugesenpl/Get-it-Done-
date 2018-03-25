@@ -11,5 +11,4 @@ import Foundation
 class Item: Codable {
     var text = ""
     var isChecked = false
-    
 }

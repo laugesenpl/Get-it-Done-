@@ -9,28 +9,22 @@
 import UIKit
 
 class TodoViewController: UITableViewController {
-
-//    var itemArray = ["Got for Run", "Check Mail", "Pick up drycleaning"]
     
-    var firstItem = Item()
-    var itemArray = [Item()]
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    var itemArray = [Item]()
+//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Todo.plist")
+      let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 
-    
-    let defaults = UserDefaults.standard
+//    let defaults = UserDefaults.standard
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(dataFilePath)
+        print(dataFilePath!)
         
-        firstItem.text = "Do Laundry"
-        firstItem.isChecked = false
-        itemArray.append(firstItem)
-        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-            itemArray = items
-        }
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
+//            itemArray = items
+//        }
         
         loadItems()
     }
@@ -55,9 +49,7 @@ class TodoViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    
-        
+            
         if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
 
