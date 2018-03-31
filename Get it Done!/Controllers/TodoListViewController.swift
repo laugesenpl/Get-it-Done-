@@ -86,7 +86,6 @@ class TodoViewController: UITableViewController {
                 newItem.parentCategory = self.selectedCategory
                 self.itemArray.append(newItem)
                 self.saveItems()
-                
             }
             
         }
@@ -114,7 +113,17 @@ class TodoViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()) {
+    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+    
+        } else {
+            request.predicate = categoryPredicate
+        }
+        
         
         do {
             itemArray = try context.fetch(request)
@@ -139,12 +148,15 @@ extension TodoViewController: UISearchBarDelegate {
         
         request.sortDescriptors = [NSSortDescriptor(key: "text", ascending: true)]
         
-        loadItems(with: request)
+        loadItems(with: request, predicate: request.predicate)
 
         tableView.reloadData()
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         if searchBar.text?.count == 0 {
+
             loadItems()
             
             DispatchQueue.main.async {
