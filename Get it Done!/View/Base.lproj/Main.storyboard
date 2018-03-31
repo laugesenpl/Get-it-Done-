@@ -47,7 +47,46 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcX-Op-pRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="106"/>
+            <point key="canvasLocation" x="2340" y="106"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="dx4-H7-ZDF">
+            <objects>
+                <tableViewController id="5V0-zh-La7" customClass="CategoryViewController" customModule="Get_it_Done_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oZf-Wy-jup">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="jY1-NI-6b3">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jY1-NI-6b3" id="PRT-ZQ-qk0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5V0-zh-La7" id="ebg-u5-EGy"/>
+                            <outlet property="delegate" destination="5V0-zh-La7" id="aeK-Ib-qUA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1KC-Tx-PWk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sY0-Gz-TEj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="5V0-zh-La7" id="NJx-S4-WLS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="7X2-rx-9I5" kind="show" identifier="goToItems" id="inZ-1G-M4f"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BtI-kD-JAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkU-n3-dFX">
@@ -64,7 +103,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7X2-rx-9I5" kind="relationship" relationship="rootViewController" id="PhN-PG-Ny4"/>
+                        <segue destination="5V0-zh-La7" kind="relationship" relationship="rootViewController" id="TWf-yc-wp4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGv-cW-fxA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,19 +12,29 @@ import CoreData
 class TodoViewController: UITableViewController {
     
     var itemArray = [Item]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var selectedCategory : Category? {
+        didSet{
+            loadItems()
+            print(selectedCategory?.name)
+
+        }        
+    }
+    
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        loadItems()
+        self.navigationItem.title = selectedCategory?.name!
+        print(selectedCategory?.name!)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -73,6 +83,7 @@ class TodoViewController: UITableViewController {
             if textField.text != nil {
                 newItem.text = textField.text!
                 newItem.isChecked = false
+                newItem.parentCategory = self.selectedCategory
                 self.itemArray.append(newItem)
                 self.saveItems()
                 
@@ -132,6 +143,16 @@ extension TodoViewController: UISearchBarDelegate {
 
         tableView.reloadData()
     }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+    }
 
+
+    }
 }
 
