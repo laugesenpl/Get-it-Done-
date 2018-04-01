@@ -10,25 +10,24 @@ import UIKit
 import CoreData
 
 class TodoViewController: UITableViewController {
-    
+
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     var itemArray = [Item]()
     
     var selectedCategory : Category? {
         didSet{
             loadItems()
-            print(selectedCategory?.name)
 
         }        
     }
     
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         self.navigationItem.title = selectedCategory?.name!
-        print(selectedCategory?.name!)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,8 +82,12 @@ class TodoViewController: UITableViewController {
             if textField.text != nil {
                 newItem.text = textField.text!
                 newItem.isChecked = false
-                newItem.parentCategory = self.selectedCategory
+                newItem.parentCategory = self.selectedCategory!
+                print("item: text \(newItem.text) isChecked \(newItem.isChecked) parentCategory \(newItem.parentCategory)")
                 self.itemArray.append(newItem)
+                let previous = self.itemArray[self.itemArray.count - 2]
+                print("previous item: text \(previous.text) isChecked \(previous.isChecked) parentCategory \(previous.parentCategory)")
+                self.itemArray[self.itemArray.count - 2].parentCategory = self.selectedCategory
                 self.saveItems()
             }
             
@@ -127,6 +130,7 @@ class TodoViewController: UITableViewController {
         
         do {
             itemArray = try context.fetch(request)
+//            print(itemArray)
         } catch {
             print("Error fetching data from context \(error)")
         }

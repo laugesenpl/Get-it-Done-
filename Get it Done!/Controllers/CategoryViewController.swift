@@ -14,15 +14,9 @@ class CategoryViewController: UITableViewController {
     var categories = [Category]()
     var selectedIndexPathRow : Int?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newCategory = Category(context: context)
-        
-//        newCategory.name = "Saturday Morning Chores"
-//        categories.append(newCategory)
         loadCategories()
     }
 
@@ -63,11 +57,8 @@ class CategoryViewController: UITableViewController {
         if segue.identifier == "goToItems" {
             let destinationVC = segue.destination as! TodoViewController
             
-//            print("here \(tableView.indexPathForSelectedRow)")
-            print("selectedIndexPathRow \(selectedIndexPathRow)")
             if let row = selectedIndexPathRow {
                 destinationVC.selectedCategory = categories[row]
-                print("selected category: \(categories[row])")
             }
         }
     
