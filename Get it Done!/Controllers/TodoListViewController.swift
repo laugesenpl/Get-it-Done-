@@ -82,12 +82,13 @@ class TodoViewController: UITableViewController {
             if textField.text != nil {
                 newItem.text = textField.text!
                 newItem.isChecked = false
-                newItem.parentCategory = self.selectedCategory!
+//i                newItem.parentCategory = self.selectedCategory
                 print("item: text \(newItem.text) isChecked \(newItem.isChecked) parentCategory \(newItem.parentCategory)")
                 self.itemArray.append(newItem)
-                let previous = self.itemArray[self.itemArray.count - 2]
-                print("previous item: text \(previous.text) isChecked \(previous.isChecked) parentCategory \(previous.parentCategory)")
-                self.itemArray[self.itemArray.count - 2].parentCategory = self.selectedCategory
+                for i in 0...(self.itemArray.count - 1) {
+                    self.itemArray[i].parentCategory = self.selectedCategory
+                }
+                
                 self.saveItems()
             }
             
