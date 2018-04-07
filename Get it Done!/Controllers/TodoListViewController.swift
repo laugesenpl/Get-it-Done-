@@ -48,7 +48,7 @@ class TodoViewController: UITableViewController {
             }
 
         } else {
-            cell.textLabel?.text = "No Item Added"
+            cell.textLabel?.text = "No Items Added"
         }
         
         return cell
@@ -70,6 +70,7 @@ class TodoViewController: UITableViewController {
         }
     
         tableView.deselectRow(at: indexPath, animated: true)
+        
         tableView.reloadData()
         
     }
@@ -77,17 +78,19 @@ class TodoViewController: UITableViewController {
     //MARK - Add New Item
     @IBAction func addItemButton(_ sender: UIBarButtonItem) {
         var textField = UITextField()
+        
         let alert = UIAlertController(title: "Add New To Do Item & Get it Done!", message: "", preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //What will happen once the user clicks the Add Item button on our UIAlert
    
             if textField.text != nil {
-                
                 if let currentCategory = self.selectedCategory {
                     do {
                         try self.realm.write {
                             let newItem = Item()
                             newItem.text = textField.text!
+                            newItem.dateCreated = Date()
                             currentCategory.items.append(newItem)
                         }
                     } catch {
@@ -95,6 +98,7 @@ class TodoViewController: UITableViewController {
                     }
 
                 }
+                
                 self.tableView.reloadData()
 
             }
@@ -114,7 +118,6 @@ class TodoViewController: UITableViewController {
     func loadItems() {
 
         todoItems = selectedCategory?.items.sorted(byKeyPath: "text", ascending: true)
-        print("todoItems: \(todoItems!)")
         tableView.reloadData()
     }
 }
@@ -123,7 +126,8 @@ class TodoViewController: UITableViewController {
 extension TodoViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        todoItems = todoItems?.filter("text CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "text", ascending: true)
+        todoItems = todoItems?.filter("text CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        tableView.reloadData()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
