@@ -43,6 +43,8 @@ class TodoViewController: UITableViewController {
             cell.textLabel?.text = item.text
             if item.isChecked {
                 cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
             }
 
         } else {
@@ -57,17 +59,32 @@ class TodoViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let item = todoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.isChecked = !item.isChecked
+                }
+
+            } catch {
+                print("Error saving checked status \(error)")
+            }
             
-        if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
+        
+//        if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        }
+        
+        
 //        todoItems![indexPath.row].isChecked = !todoItems![indexPath.row].isChecked
-
-        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
         
     }
     
