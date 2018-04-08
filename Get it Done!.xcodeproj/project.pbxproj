@@ -12,10 +12,11 @@
 		8F65C5062058A46E00C9C268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F65C5052058A46E00C9C268 /* AppDelegate.swift */; };
 		8F65C5082058A46E00C9C268 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F65C5072058A46E00C9C268 /* TodoListViewController.swift */; };
 		8F65C50B2058A46E00C9C268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F65C5092058A46E00C9C268 /* Main.storyboard */; };
-		8F65C50D2058A46E00C9C268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F65C50C2058A46E00C9C268 /* Assets.xcassets */; };
 		8F65C5102058A46E00C9C268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F65C50E2058A46E00C9C268 /* LaunchScreen.storyboard */; };
 		8F7501E520744927007379A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7501E420744927007379A7 /* Item.swift */; };
 		8F7501E720744940007379A7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7501E620744940007379A7 /* Category.swift */; };
+		8F85FF742079A749003771EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F85FF732079A749003771EC /* Assets.xcassets */; };
+		8F85FF762079B8BE003771EC /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85FF752079B8BE003771EC /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +27,12 @@
 		8F65C5052058A46E00C9C268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F65C5072058A46E00C9C268 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		8F65C50A2058A46E00C9C268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8F65C50C2058A46E00C9C268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F65C50F2058A46E00C9C268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F65C5112058A46E00C9C268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F7501E420744927007379A7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8F7501E620744940007379A7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8F85FF732079A749003771EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F85FF752079B8BE003771EC /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		D2419366627D9CF8BA3E7B3C /* Pods_Get_it_Done_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_it_Done_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			children = (
 				8F14791F206C65B300630C02 /* CategoryViewController.swift */,
 				8F65C5072058A46E00C9C268 /* TodoListViewController.swift */,
+				8F85FF752079B8BE003771EC /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -83,6 +86,7 @@
 		8F65C4F92058A46E00C9C268 = {
 			isa = PBXGroup;
 			children = (
+				8F85FF722079A72F003771EC /* Supporting Files */,
 				8F65C5042058A46E00C9C268 /* Get it Done! */,
 				8F65C5032058A46E00C9C268 /* Products */,
 				FE9113767C75BCAAF6D27162 /* Pods */,
@@ -105,11 +109,18 @@
 				8F14791E2067D86800630C02 /* View */,
 				8F14791D2067D84D00630C02 /* Controllers */,
 				8F14791C2067D83A00630C02 /* Model */,
-				8F65C50C2058A46E00C9C268 /* Assets.xcassets */,
 				8F65C50E2058A46E00C9C268 /* LaunchScreen.storyboard */,
 				8F65C5112058A46E00C9C268 /* Info.plist */,
 			);
 			path = "Get it Done!";
+			sourceTree = "<group>";
+		};
+		8F85FF722079A72F003771EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F85FF732079A749003771EC /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FE9113767C75BCAAF6D27162 /* Pods */ = {
@@ -184,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F65C5102058A46E00C9C268 /* LaunchScreen.storyboard in Resources */,
-				8F65C50D2058A46E00C9C268 /* Assets.xcassets in Resources */,
+				8F85FF742079A749003771EC /* Assets.xcassets in Resources */,
 				8F65C50B2058A46E00C9C268 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,11 +212,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Get it Done!/Pods-Get it Done!-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -256,6 +269,7 @@
 				8F147920206C65B300630C02 /* CategoryViewController.swift in Sources */,
 				8F65C5082058A46E00C9C268 /* TodoListViewController.swift in Sources */,
 				8F65C5062058A46E00C9C268 /* AppDelegate.swift in Sources */,
+				8F85FF762079B8BE003771EC /* SwipeTableViewController.swift in Sources */,
 				8F7501E720744940007379A7 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
